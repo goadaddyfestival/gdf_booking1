@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goa Daddy Festival Edition 2 - Bookings</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700;800;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f1624 100%);
+            color: white;
+            line-height: 1.7;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3));
+            border-radius: 20px;
+            margin-bottom: 40px;
+            border: 3px solid;
+            border-image: linear-gradient(135deg, #e40303, #ff8c00, #ffed00, #008026, #004dff, #750787) 1;
+        }
+        
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            background: linear-gradient(90deg, #e40303 0%, #ff8c00 16.66%, #ffed00 33.33%, #008026 50%, #004dff 66.66%, #750787 83.33%, #e40303 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .header-info {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            margin: 10px 0;
+            font-weight: 600;
+        }
+        
+        .whatsapp-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 900;
+            margin-top: 20px;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
+        }
+        
+        /* Section */
+        .section {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            padding: 40px 30px;
+            margin-bottom: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            color: #ffed00;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid;
+            border-image: linear-gradient(to right, #e40303, #ff8c00, #ffed00, #008026, #004dff, #750787) 1;
+        }
+        
+        .section p {
+            margin-bottom: 15px;
+            font-size: clamp(1rem, 1.8vw, 1.1rem);
+            line-height: 1.8;
+        }
+        
+        /* Lists */
+        .list-item {
+            margin: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: clamp(1rem, 1.8vw, 1.1rem);
+        }
+        
+        .list-item::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #ffed00;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* Highlight boxes */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(228, 3, 3, 0.2), rgba(255, 140, 0, 0.2), rgba(255, 237, 0, 0.2));
+            border-left: 4px solid #ffed00;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .highlight-box strong {
+            color: #ffed00;
+        }
+        
+        /* Info boxes */
+        .info-box {
+            background: rgba(0, 0, 0, 0.6);
+            border: 3px solid;
+            border-image: linear-gradient(135deg, #e40303, #ff8c00, #ffed00, #008026, #004dff, #750787) 1;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+        
+        .info-box-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #ffed00;
+            margin-bottom: 15px;
+        }
+        
+        /* Pricing table */
+        .pricing-table {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .price-item {
+            padding: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 1.1rem;
+        }
+        
+        .price-item:last-child {
+            border-bottom: none;
+        }
+        
+        .price-item strong {
+            color: #ffed00;
+        }
+        
+        /* Payment methods */
+        .payment-method {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+        
+        .payment-method h4 {
+            color: #ffed00;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        /* Steps */
+        .steps-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .steps-list li {
+            counter-increment: step-counter;
+            margin: 15px 0;
+            padding-left: 40px;
+            position: relative;
+            font-size: clamp(1rem, 1.8vw, 1.1rem);
+        }
+        
+        .steps-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 0.9rem;
+        }
+        
+        /* Contact section */
+        .contact-banner {
+            background: linear-gradient(135deg, #e40303 0%, #ff8c00 20%, #ffed00 40%, #008026 60%, #004dff 80%, #750787 100%);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 30px 0;
+            box-shadow: 0 10px 40px rgba(255, 237, 0, 0.4);
+        }
+        
+        .contact-banner h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .contact-number {
+            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+            font-weight: 900;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .footer-tagline {
+            font-size: 1.2rem;
+            font-style: italic;
+            opacity: 0.9;
+        }
+        
+        /* Rainbow line */
+        .rainbow-line {
+            height: 4px;
+            background: linear-gradient(to right, #e40303, #ff8c00, #ffed00, #008026, #004dff, #750787);
+            max-width: 600px;
+            margin: 30px auto;
+            border-radius: 2px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .section {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1 class="page-title">Goa Daddy Festival Edition 2 Bookings</h1>
+            <div class="rainbow-line"></div>
+            <p class="header-info">Dates: 19 to 22 November 2026</p>
+            <p class="header-info">Location: Baga, North Goa</p>
+            <a href="https://wa.me/919967622952" class="whatsapp-btn" target="_blank">📲 WhatsApp Us to Book</a>
+        </div>
+        
+        <!-- Intro -->
+        <div class="section">
+            <p>Bookings are confirmed via WhatsApp or phone after you select a room from the layout below.</p>
+        </div>
+        
+        <!-- Step 1 -->
+        <div class="section">
+            <h2 class="section-title">Step 1: Choose Your Room</h2>
+            <p>Use the hotel room layout below to explore available rooms. Once you shortlist a room, tap on the room and click on note or scroll down to the room list to check its full specification and price.</p>
+            
+            <div class="info-box">
+                <div class="info-box-title">How to book your selected room:</div>
+                <ol class="steps-list">
+                    <li>Pick your preferred room number from the layout (available at the end of this page)</li>
+                    <li>Check the room's specification and price in the room's note or in the list below</li>
+                    <li>WhatsApp or call us with the room number you want to book</li>
+                    <li>Pay a token amount to reserve the room</li>
+                    <li>Complete the remaining payments as per the schedule</li>
+                </ol>
+            </div>
+            
+            <div class="contact-banner">
+                <h3>📲 WhatsApp / Call for booking:</h3>
+                <p class="contact-number">+91 9967622952</p>
+            </div>
+        </div>
+        
+        <!-- Hotels Included -->
+        <div class="section">
+            <h2 class="section-title">Hotels Included</h2>
+            <p>This year, GDF is bigger. We have reserved 3 adjacent hotels in Baga.</p>
+            
+            <div class="list-item"><strong>Hotel A (Main Venue):</strong> All events and activities will happen here</div>
+            <div class="list-item"><strong>Hotel B and Hotel C (Adjacent Hotels):</strong> For additional stay capacity</div>
+            
+            <div class="highlight-box">
+                <p><strong>🍽️ Important:</strong> All meals for every guest will be served at Hotel A, including guests staying at Hotel B or Hotel C.</p>
+            </div>
+        </div>
+        
+        <!-- Package Includes -->
+        <div class="section">
+            <h2 class="section-title">Package Includes</h2>
+            <p>This is an all inclusive package.</p>
+            
+            <div class="info-box">
+                <div class="info-box-title">✅ Included</div>
+                <div class="list-item">Stay in a 4 star property (Hotel A, B, or C depending on the room you choose)</div>
+                <div class="list-item">All meals: breakfast, lunch, evening tea, dinner</div>
+                <div class="list-item">Access to all festival events and parties</div>
+            </div>
+            
+            <div class="info-box">
+                <div class="info-box-title">❌ Not included</div>
+                <div class="list-item">Alcoholic drinks</div>
+                <div class="list-item">Travel to and from Goa</div>
+                <div class="list-item">Any personal expenses (laundry, minibar, room service, etc.)</div>
+            </div>
+        </div>
+        
+        <!-- Occupancy Options -->
+        <div class="section">
+            <h2 class="section-title">Occupancy Options</h2>
+            <p>You can book on single, double, or triple occupancy.</p>
+            
+            <div class="info-box" style="margin-top: 25px;">
+                <div class="info-box-title">Single Occupancy:</div>
+                <p>Private room for one guest</p>
+            </div>
+            
+            <div class="info-box">
+                <div class="info-box-title">Double Occupancy:</div>
+                <p style="margin-bottom: 10px;">Can be booked by:</p>
+                <div class="list-item">A solo guest (you will be paired with another guest), or</div>
+                <div class="list-item">Two guests booking together</div>
+            </div>
+            
+            <div class="info-box">
+                <div class="info-box-title">Triple Occupancy:</div>
+                <p>Only available when three guests book together</p>
+                <p style="margin-top: 10px; font-style: italic;">(Solo guests or two guests cannot book this option)</p>
+            </div>
+            
+            <div class="highlight-box">
+                <p><strong>Note:</strong> Solo guests opting for double occupancy will be paired with another guest by us.</p>
+            </div>
+        </div>
+        
+        <!-- Pricing -->
+        <div class="section">
+            <h2 class="section-title">Pricing</h2>
+            <p>To view the exact price of a room, please refer to the hotel layout section and select your preferred room.</p>
+            
+            <div class="pricing-table">
+                <div class="info-box-title" style="margin-bottom: 20px;">Starting prices:</div>
+                <div class="price-item"><strong>Single occupancy</strong> starting from ₹25,000</div>
+                <div class="price-item"><strong>Double occupancy</strong> starting from ₹16,000 per person</div>
+                <div class="price-item"><strong>Triple occupancy</strong> starting from ₹14,000 per person</div>
+            </div>
+            
+            <div class="highlight-box">
+                <p><strong>✅ The Room List below shows the exact price for each room.</strong></p>
+            </div>
+        </div>
+        
+        <!-- Room List -->
+        <div class="section">
+            <h2 class="section-title">Room List and Specifications</h2>
+            <p>Below the layout, you will see a complete room list with details such as:</p>
+            
+            <div class="list-item">Room type</div>
+            <div class="list-item">Hotel (A/B/C)</div>
+            <div class="list-item">Floor</div>
+            <div class="list-item">Balcony (Yes/No)</div>
+            <div class="list-item">Bathtub (Yes/No)</div>
+            <div class="list-item">Lift access (Yes/No)</div>
+            <div class="list-item">View (if applicable)</div>
+            <div class="list-item">Occupancy allowed (Single/Double/Triple)</div>
+            <div class="list-item">Total price (or per person price, as applicable)</div>
+            
+            <div class="highlight-box">
+                <p>To book, simply message us: <strong>"Hi, I want to book Room 203 (Hotel B). Please share next steps."</strong></p>
+            </div>
+        </div>
+        
+        <!-- How to Reserve -->
+        <div class="section">
+            <h2 class="section-title">How to Reserve Your Room</h2>
+            <p>To reserve a room, pay a token amount of ₹2,000.</p>
+            <p>Once token is paid, your room is blocked for you and the remaining balance can be paid in 3 parts.</p>
+        </div>
+        
+        <!-- Payment Schedule -->
+        <div class="section">
+            <h2 class="section-title">Payment Schedule</h2>
+            <div class="list-item">30% by 15 May 2026</div>
+            <div class="list-item">30% by 15 June 2026</div>
+            <div class="list-item">40% by 15 August 2026</div>
+            
+            <p style="margin-top: 20px; font-style: italic;">(You are welcome to pay earlier as well.)</p>
+        </div>
+        
+        <!-- Cancellation Policy -->
+        <div class="section">
+            <h2 class="section-title">Cancellation and Refund Policy</h2>
+            <div class="list-item">Full refund until 30 August 2026</div>
+            <div class="list-item">No refund after 30 August 2026</div>
+        </div>
+        
+        <!-- Booking Transfer -->
+        <div class="section">
+            <h2 class="section-title">Booking Transfer</h2>
+            <p>You can transfer your booking to a friend or someone on the waitlist anytime until 10 November 2026. (Transfers are subject to basic verification and sharing required details for check in.)</p>
+        </div>
+        
+        <!-- Payment Methods -->
+        <div class="section">
+            <h2 class="section-title">Payment Methods</h2>
+            
+            <div class="payment-method">
+                <h4>India Payments</h4>
+                <p><strong>Bank Transfer</strong></p>
+                <p>Account Name: Timeless Travels<br>
+                Account Number: 50200110386974<br>
+                Account Type: Current<br>
+                IFSC: HDFC0000276</p>
+                
+                <p style="margin-top: 15px;"><strong>UPI payments:</strong> 9967622952</p>
+            </div>
+            
+            <div class="payment-method">
+                <h4>International Payments</h4>
+                <p>International guests can pay via:</p>
+                <div class="list-item">SWIFT transfer, or</div>
+                <div class="list-item">Request a debit/credit card payment link on WhatsApp (shared on request)</div>
+            </div>
+        </div>
+        
+        <!-- Important Notes -->
+        <div class="section">
+            <h2 class="section-title">Important Notes</h2>
+            <div class="list-item">Your booking is considered confirmed only after token payment and WhatsApp confirmation from our team</div>
+            <div class="list-item">Room selection is first come, first served based on token payment time</div>
+            <div class="list-item">Room availability can change quickly while bookings are open</div>
+            <div class="list-item">Festival access is included only for registered guests staying via the GDF booking</div>
+        </div>
+        
+        <!-- Hotel Layout Button -->
+        <div class="section" style="text-align: center; padding: 50px 30px;">
+            <h2 class="section-title">Ready to Choose Your Room?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 30px;">View the complete hotel layout with room specifications, availability, and pricing.</p>
+            <a href="https://docs.google.com/spreadsheets/d/1XY7tUUnCROy5pmiZ_bunVfodKUm1kNTJ/edit?usp=sharing&ouid=112497894592627449670&rtpof=true&sd=true" target="_blank" class="whatsapp-btn" style="background: linear-gradient(135deg, #e40303 0%, #ff8c00 20%, #ffed00 40%, #008026 60%, #004dff 80%, #750787 100%); font-size: 1.3rem; padding: 20px 50px;">
+                📋 View Hotel Layout & Room Availability
+            </a>
+            <p style="font-size: 1rem; margin-top: 25px; opacity: 0.9;">Once you've selected a room, WhatsApp us the room number to confirm your booking!</p>
+        </div>
+        
+        <!-- Need Help -->
+        <div class="section">
+            <h2 class="section-title">Need Help Choosing a Room?</h2>
+            <p>If you are confused between rooms, just WhatsApp us your preference like: "Quiet room" / "Balcony" / "Near lift" / "Bathtub" / "Lower floor"</p>
+            <p>We will suggest the best available options.</p>
+            
+            <div class="contact-banner">
+                <h3>📲 WhatsApp / Call:</h3>
+                <p class="contact-number">+91 9967622952</p>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div class="rainbow-line"></div>
+            
+            <!-- Explore Festival Button -->
+            <div style="margin: 40px 0;">
+                <a href="https://www.goadaddyfestival.com" class="whatsapp-btn" style="background: linear-gradient(135deg, #e40303 0%, #ff8c00 20%, #ffed00 40%, #008026 60%, #004dff 80%, #750787 100%);">
+                    🌈 Explore Goa Daddy Festival
+                </a>
+            </div>
+            
+            <p class="footer-tagline">India's Pioneering Gay Daddy Festival</p>
+            <p style="margin-top: 15px; opacity: 0.8;">@goadaddyfestival</p>
+        </div>
+    </div>
+</body>
+</html>
